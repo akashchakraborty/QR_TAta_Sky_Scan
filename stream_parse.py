@@ -28,16 +28,30 @@ def parse_string(str1):
 
         dict1["Syntax Version"]=str1[0:2]  
         dict1["Length"]=str1[2:4]
-        dict1["CRC"]=str1[4:8]
-        dict1["Subscriber ID"]=str1[8:17]
-        dict1["CDSN"]=str1[17:27]
+        dict1["CRC"]=str1[4:8] + " - CRC is calculated using IBM3470 algorithm"
+        subsID = str1[8:17]
+        subsID=int(subsID,16)
+        dict1["Subscriber ID"]=subsID
+        cdsn = str1[17:27]
+        cdsn=int(cdsn,16)
+        dict1["CDSN"]=cdsn
         dict1["STB Model"]=str1[27:31]
-        dict1["LNB Model"]=str1[31:32]
-        dict1["No. Of Tuners"]=str1[32:33]
+        lnbM = str1[31:32]
+        if lnbM == "U":
+            dict1["LNB Model"]="Universal LNB"
+        else:
+            dict1["LNB Model"]="Super LNB"
+        Tnum=str1[32:33]
+        Tnum=int(Tnum,16)
+        dict1["No. Of Tuners"]=Tnum
         dict1["Tuner Status"]=str1[33:34]
         dict1["TP Name"]=str1[34:37]
-        dict1["Signal Level"]=str1[37:39]
-        dict1["Signal Quality"]=str1[39::]
+        sL = str1[37:39]
+        sL = int(sL,16)
+        dict1["Signal Level"]=sL
+        sT = str1[39::]
+        sT = int(sT,16)
+        dict1["Signal Quality"]=sT
     except:
         pass
     return dict1
