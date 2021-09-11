@@ -6,6 +6,7 @@
 ## eg:  01-21-E382-000000000-01A3C20C82-31xx-U-1-Y-K10-9E-7E   ##
 #################################################################
 #################################################################
+import json
 
 def parse_string(str1):
     str1=str(str1)
@@ -52,10 +53,8 @@ def parse_string(str1):
         sT = str1[39::]
         sT = int(sT,16)
         dict1["Signal Quality"]=sT
+        json_out = json.dumps(dict1,indent=4)
     except:
         pass
-    return dict1
+    return json_out
 
-# string1 = "01217c880075bcd1501a3c20a5931xxS1YK09a569"
-# x=parse_string(string1)
-# print(x)
