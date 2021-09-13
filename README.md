@@ -1,5 +1,5 @@
 # QR_TAta_Sky_Scan
-Desktop application to scan the screen for QR code.
+Desktop application to scan the screen for QR code. (Windows)
 
 Prerequisites:
 1. Do not minimize the window where the QR code is present
