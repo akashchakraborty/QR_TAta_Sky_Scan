@@ -27,7 +27,7 @@ banner ="""
 print(banner)
 time.sleep(2)
 
-out = main("Whats")
+out = main("Storm")
 print(out)
 
 
