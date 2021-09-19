@@ -23,13 +23,15 @@ def find_window(name):
                 flag = 1
     windowName = windowTcap[1]
     windowNum = windowTcap[0]
-
+    win32gui.SetForegroundWindow(windowNum)
+    im = ImageGrab.grab()
+    im.save("test.png")
     return windowName,windowNum
 
-# x,y=find_window("WhatsApp")
-# print(x,y)
-# handle = win32gui.FindWindow(None, x)
+# x,y=find_window("Zoom")
+# #print(x,y)
+# #handle = win32gui.FindWindow(None, x)
 # win32gui.SetForegroundWindow(y)
 # im = ImageGrab.grab()
 # # save image file
-# im.save("fullscreen.png")
+# im.save("test.png")
